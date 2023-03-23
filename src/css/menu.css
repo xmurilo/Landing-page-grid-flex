@@ -1,0 +1,139 @@
+/* HEADER */
+
+.header {
+  grid-area: header;
+  background-color: #fff;
+}
+
+.header .header-container {
+  display: flex;
+  background-color: #fff;
+  padding: 20px 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  transition: 0.3s;
+}
+
+.header a:hover h1 {
+  color: lightseagreen;
+}
+
+.header nav ul {
+  display: flex;
+  /* gap: 0 10px; Penso em deixar um GAP entre os ITEMS do NAV */
+}
+
+.header nav ul li a {
+  font-size: 2rem;
+  padding: 10px 30px;
+  font-weight: 500;
+  border-radius: 3rem;
+  transition: 0.3s ease-in-out;
+}
+
+.header nav ul li a:hover {
+  color: #dddddd;
+  background-color: rgb(0, 52, 49);
+}
+
+/* RESPONSIVE */
+
+.header nav label {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .menu {
+  display: none;
+  height: 60px;
+  width: 60px;
+  align-self: flex-end;
+}
+
+.menu .hamburguer {
+  background-color: #000;
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 2px;
+  top: 29px;
+  left: 15px;
+  transition: 0.5s ease-in-out;
+}
+
+.menu .hamburguer::before,
+.menu .hamburguer::after {
+  background-color: #000;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+}
+
+.menu .hamburguer:before {
+  top: -10px;
+}
+
+.menu .hamburguer:after {
+  bottom: -10px;
+}
+.header input {
+  display: none;
+}
+
+.header input:checked ~ label .hamburguer {
+  transform: rotate(45deg);
+}
+
+.header input:checked ~ label .hamburguer::before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.header input:checked ~ label .hamburguer::after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .header nav {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    z-index: 1;
+  }
+
+  .header .menu {
+    display: block;
+  }
+
+  .header nav ul {
+    display: none;
+  }
+
+  .header input:checked ~ ul {
+    display: block;
+  }
+
+  .header nav ul {
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  .header nav ul a {
+    display: block;
+    text-align: center;
+  }
+
+  .header nav ul li {
+    padding: 10px 0;
+  }
+}
